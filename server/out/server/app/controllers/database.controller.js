@@ -31,6 +31,7 @@ let DatabaseController = class DatabaseController {
             })
                 .catch((e) => {
                 console.error(e.stack);
+                res.status(400).send(e.message);
             });
         });
         router.delete("/birds/:nomscientifique", (req, res, _) => {
@@ -41,6 +42,7 @@ let DatabaseController = class DatabaseController {
             })
                 .catch((e) => {
                 console.error(e.message);
+                res.status(400).send(e.message);
             });
         });
         router.post("/birds/add", (req, res, _) => {
@@ -57,6 +59,7 @@ let DatabaseController = class DatabaseController {
             })
                 .catch((e) => {
                 console.error(e.stack);
+                res.status(400).send(e.message);
             });
         });
         router.put("/birds/update", (req, res, _) => {

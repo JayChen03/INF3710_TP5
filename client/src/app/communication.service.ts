@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 // tslint:disable-next-line:ordered-imports
 import { of, Observable, Subject } from "rxjs";
@@ -8,11 +8,16 @@ import { Room } from "../../../common/tables/Room";
 import { HotelPK } from "../../../common/tables/HotelPK";
 import { Guest } from "../../../common/tables/Guest";
 import { Oiseau } from "../../../common/tables/Oiseau";
+import { InformationModalComponent } from "./information-modal/information-modal.component";
+import { MatDialog } from "@angular/material/dialog";
 
 @Injectable()
 export class CommunicationService {
   private readonly BASE_URL: string = "http://localhost:3000/database";
-  public constructor(private http: HttpClient) {}
+  public constructor(
+    private http: HttpClient,
+    private dialog: MatDialog,
+  ) { }
 
   private _listners: any = new Subject<any>();
 
@@ -111,11 +116,14 @@ export class CommunicationService {
   private handleError<T>(
     request: string,
     result?: T
-  ): (error: Error) => Observable<T> {
-    return (error: Error): Observable<T> => {
-      console.log('error')
-      console.error(error);
+  ): (error: any) => Observable<T> {
+    return (error: HttpErrorResponse): Observable<T> => {
+      this.dialog.open(InformationModalComponent, {
+        data: error.error,
+      });
       return of(result as T);
     };
   }
 }
+
+

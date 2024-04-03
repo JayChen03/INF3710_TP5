@@ -10,7 +10,10 @@ import { GuestComponent } from "./guest/guest.component";
 import { HotelComponent } from "./hotel/hotel.component";
 import { RoomComponent } from "./room/room.component";
 import { OiseauComponent } from './oiseau/oiseau.component';
-import { AddBirdModalComponent } from './add-bird-modal/add-bird-modal.component';
+import { InformationModalComponent } from './information-modal/information-modal.component';
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,14 +22,17 @@ import { AddBirdModalComponent } from './add-bird-modal/add-bird-modal.component
     HotelComponent,
     GuestComponent,
     OiseauComponent,
-    AddBirdModalComponent,
+    InformationModalComponent,
   ],
   imports: [
     CommonModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDialogModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
   ],
   providers: [CommunicationService],
   bootstrap: [AppComponent],

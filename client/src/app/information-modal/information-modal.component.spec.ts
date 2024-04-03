@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddBirdModalComponent } from './add-bird-modal.component';
+import { InformationModalComponent } from './information-modal.component';
 
-describe('AddBirdModalComponent', () => {
-  let component: AddBirdModalComponent;
-  let fixture: ComponentFixture<AddBirdModalComponent>;
+describe('InformationModalComponent', () => {
+  let component: InformationModalComponent;
+  let fixture: ComponentFixture<InformationModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddBirdModalComponent ]
+      declarations: [ InformationModalComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddBirdModalComponent);
+    fixture = TestBed.createComponent(InformationModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

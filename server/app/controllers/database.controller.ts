@@ -28,6 +28,7 @@ export class DatabaseController {
         })
         .catch((e: Error) => {
           console.error(e.stack);
+          res.status(400).send(e.message);
         });
     });
 
@@ -39,6 +40,7 @@ export class DatabaseController {
         })
         .catch((e: Error) => {
           console.error(e.message);
+          res.status(400).send(e.message);
         });
     });
 
@@ -57,7 +59,7 @@ export class DatabaseController {
         })
         .catch((e: Error) => {
           console.error(e.stack);
-          res.status(500).send(e.stack);
+          res.status(400).send(e.message);
         });
     });
 
