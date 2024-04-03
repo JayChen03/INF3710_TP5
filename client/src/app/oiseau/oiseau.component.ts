@@ -20,6 +20,14 @@ export class OiseauComponent implements OnInit {
     this.getBirds();
   }
 
+  public refresh(): void {
+    this.getBirds();
+    this.newNomScientifique.nativeElement.innerText = 'Nom scientifique';
+    this.newNomCommun.nativeElement.innerText = 'Nom commun';
+    this.newStatutSpeces.nativeElement.value = '';
+    this.newNomScientifiqueComsommer.nativeElement.innerText = '';
+  }
+
   public getBirds(): void {
     this.communicationService.getBirds().subscribe((oiseaux: Oiseau[]) => {
       this.oiseaux = oiseaux;
@@ -43,7 +51,7 @@ export class OiseauComponent implements OnInit {
       if (res > 0) {
         this.communicationService.filter('update');
       }
-      this.getBirds();
+      this.refresh();
     });
   }
 

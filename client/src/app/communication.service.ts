@@ -113,6 +113,8 @@ export class CommunicationService {
     result?: T
   ): (error: Error) => Observable<T> {
     return (error: Error): Observable<T> => {
+      console.log('error')
+      console.error(error);
       return of(result as T);
     };
   }

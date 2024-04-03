@@ -57,6 +57,7 @@ export class DatabaseController {
         })
         .catch((e: Error) => {
           console.error(e.stack);
+          res.status(500).send(e.stack);
         });
     });
 
