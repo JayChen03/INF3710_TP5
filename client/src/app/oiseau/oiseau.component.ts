@@ -25,7 +25,7 @@ export class OiseauComponent implements OnInit {
     this.newNomScientifique.nativeElement.innerText = 'Nom scientifique';
     this.newNomCommun.nativeElement.innerText = 'Nom commun';
     this.newStatutSpeces.nativeElement.value = '';
-    this.newNomScientifiqueComsommer.nativeElement.innerText = '';
+    this.newNomScientifiqueComsommer.nativeElement.value = '';  ``
   }
 
   public getBirds(): void {
@@ -45,7 +45,7 @@ export class OiseauComponent implements OnInit {
       nomscientifique: this.newNomScientifique.nativeElement.innerText,
       nomcommun: this.newNomCommun.nativeElement.innerText,
       statutspeces: this.newStatutSpeces.nativeElement.value,
-      nomscientifiquecomsommer: this.newNomScientifiqueComsommer.nativeElement.innerText === '' ? null : this.newNomScientifiqueComsommer.nativeElement.innerText,
+      nomscientifiquecomsommer: this.newNomScientifiqueComsommer.nativeElement.value === '' ? null : this.newNomScientifiqueComsommer.nativeElement.value,
     };
     this.communicationService.addBird(oiseau).subscribe((res: number) => {
       if (res > 0) {

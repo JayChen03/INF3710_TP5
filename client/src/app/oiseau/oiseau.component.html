@@ -30,13 +30,20 @@
         <td class="contentCell" contenteditable="true" #newNomCommun>Nom commun</td>
         <td class="contentCell">
           <select #newStatutSpeces>
-            <option value="">Select status</option>
+            <option value="">Choisir le statut</option>
             <option value="Non menacée">Non menacée</option>
             <option value="réoccupation mineure">Préoccupation mineure</option>
             <option value="Vulnérable">Vulnérable</option>
           </select>
         </td>
-        <td class="contentCell" contenteditable="true" placeholder="" #newNomScientifiqueComsommer></td>
+        <td class="contentCell">
+          <select #newNomScientifiqueComsommer>
+            <option value="">Choisir un prédateur</option>
+            <option *ngFor="let oiseau of oiseaux" [value]="oiseau.nomscientifique">
+              {{ oiseau.nomscientifique }}
+            </option>
+          </select>
+        </td>
         <td class="contentCell"></td>
       </tr>
     </tbody>
