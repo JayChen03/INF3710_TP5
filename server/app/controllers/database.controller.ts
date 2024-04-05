@@ -78,6 +78,7 @@ export class DatabaseController {
         })
         .catch((e: Error) => {
           console.error(e.stack);
+          res.status(400).send(e.message);
         });
     });
 

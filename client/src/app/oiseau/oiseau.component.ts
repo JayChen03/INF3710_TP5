@@ -78,7 +78,7 @@ export class OiseauComponent implements OnInit {
 
   public updateBird(i: number): void {
     this.communicationService.updateBird(this.oiseaux[i]).subscribe((res: number) => {
-      this.getBirds();
+      this.refresh();
     });
   }
 

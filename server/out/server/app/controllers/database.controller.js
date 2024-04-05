@@ -76,6 +76,7 @@ let DatabaseController = class DatabaseController {
             })
                 .catch((e) => {
                 console.error(e.stack);
+                res.status(400).send(e.message);
             });
         });
         // ======= HOTEL ROUTES =======
