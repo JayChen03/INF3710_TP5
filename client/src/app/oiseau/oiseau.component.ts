@@ -57,17 +57,23 @@ export class OiseauComponent implements OnInit {
 
   public changeNomCommun(event: any, i: number): void {
     const editField = event.target.textContent;
-    this.oiseaux[i].nomcommun = editField;
+    if (editField.trim() !== '') {
+      this.oiseaux[i].nomcommun = editField;
+    }
   }
-
+  
   public changeStatutSpeces(event: any, i: number): void {
     const editField = event.target.value;
-    this.oiseaux[i].statutspeces = editField;
+    if (editField.trim() !== '') {
+      this.oiseaux[i].statutspeces = editField;
+    }
   }
-
+  
   public changeNomScientifiqueComsommer(event: any, i: number): void {
     const editField = event.target.textContent;
-    this.oiseaux[i].nomscientifiquecomsommer = editField;
+    if (editField.trim() !== '') {
+      this.oiseaux[i].nomscientifiquecomsommer = editField;
+    }
   }
 
   public updateBird(i: number): void {
