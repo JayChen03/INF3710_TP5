@@ -15,10 +15,21 @@
       <tr *ngFor="let oiseau of oiseaux; let i = index">
         <td class="contentCell">{{ oiseau.nomscientifique }}</td>
         <td class="contentCell" contenteditable="true" (blur)="changeNomCommun($event, i)">{{ oiseau.nomcommun }}</td>
-        <td class="contentCell" contenteditable="true" (blur)="changeStatutSpeces($event, i)">{{ oiseau.statutspeces }}
+        <td class="contentCell">
+          <select (change)="changeStatutSpeces($event, i)" [(ngModel)]="oiseau.statutspeces">
+            <option value="Non menacée">Non menacée</option>
+            <option value="Préoccupation mineure">Préoccupation mineure</option>
+            <option value="Vulnérable">Vulnérable</option>
+          </select>
         </td>
-        <td class="contentCell" contenteditable="true" (blur)="changeNomScientifiqueComsommer($event, i)">{{
-          oiseau.nomscientifiquecomsommer }}</td>
+        <td class="contentCell">
+          <select (change)="changeNomScientifiqueComsommer($event, i)" [(ngModel)]="oiseau.nomscientifiquecomsommer">
+            <option value="">Aucun prédateur</option>
+            <option *ngFor="let oiseau of oiseaux" [value]="oiseau.nomscientifique">
+              {{ oiseau.nomscientifique }}
+            </option>
+          </select>
+        </td>
         <td class="actionCell">
           <button type="button" class="submitbtn" (click)="updateBird(i)"><i class="fa fa-edit"></i></button>
           <button type="button" class="deletebtn" (click)="deleteBird(oiseau.nomscientifique)"><i

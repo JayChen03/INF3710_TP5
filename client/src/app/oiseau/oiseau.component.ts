@@ -70,7 +70,7 @@ export class OiseauComponent implements OnInit {
   }
   
   public changeNomScientifiqueComsommer(event: any, i: number): void {
-    const editField = event.target.textContent;
+    const editField = event.target.value;
     if (editField.trim() !== '') {
       this.oiseaux[i].nomscientifiquecomsommer = editField;
     }

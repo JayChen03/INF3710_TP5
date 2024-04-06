@@ -68,8 +68,10 @@ export class DatabaseController {
         nomscientifique: req.body.nomscientifique,
         nomcommun: req.body.nomcommun,
         statutspeces: req.body.statutspeces,
-        nomscientifiquecomsommer: req.body.nomscientifiquecomsommer,
+        nomscientifiquecomsommer: req.body.nomscientifiquecomsommer === "" ? null : req.body.nomscientifiquecomsommer,
       };
+
+      console.log(oiseau);
 
       this.databaseService
         .updateBird(oiseau)

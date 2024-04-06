@@ -72,10 +72,13 @@ export class DatabaseService {
       toUpdateValues.push(`nomcommun = '${oiseau.nomcommun}'`);
     if (oiseau.statutspeces.length > 0)
       toUpdateValues.push(`statutspeces = '${oiseau.statutspeces}'`);
-    if (oiseau.nomscientifiquecomsommer)
+    if (oiseau.nomscientifiquecomsommer) {
       toUpdateValues.push(
         `nomscientifiquecomsommer = '${oiseau.nomscientifiquecomsommer}'`
       );
+    } else {
+      toUpdateValues.push(`nomscientifiquecomsommer = NULL`);
+    }
 
     if (
       !oiseau.nomscientifique ||
